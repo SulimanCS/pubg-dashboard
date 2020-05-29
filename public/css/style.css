@@ -149,3 +149,30 @@ select {
 li {
   list-style: none;
 }
+
+/* =============================================================================
+   My CSS
+   ========================================================================== */
+
+/* ---- base background setup ---- */
+
+html,
+body {
+  background-color: #1e1e1e;
+}
+
+html {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* body {
+  font: normal 75% Arial, Helvetica, sans-serif;
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
+  display: flex;
+} */
+
+canvas {
+  display: block;
+  vertical-align: bottom;
+}
+
