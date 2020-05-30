@@ -192,3 +192,11 @@ canvas {
   background-repeat: no-repeat;
 }
 
+/* ---- base react style ---- */
+
+#root {
+  position: relative;
+  /* height: 100px;
+  height: 200px; */
+  z-index: 1;
+}
