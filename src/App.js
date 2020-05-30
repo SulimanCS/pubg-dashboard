@@ -1,13 +1,12 @@
 import React from "react";
+import SearchBox from "./components/SearchBox/SearchBox";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <div class="container">
-          <input type="text" placeholder="PUBG ID..." id="search" />
-        </div>
+        <SearchBox />
       </header>
     </div>
   );
