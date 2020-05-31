@@ -18,12 +18,12 @@
   font-weight: bolder;
   letter-spacing: 0.1em;
   box-sizing: border-box;
-  animation: test 1.5s ease;
+  animation: search-start 1.5s ease;
   animation-delay: 1s;
   animation-fill-mode: forwards;
 }
 
-@keyframes test {
+@keyframes search-start {
   0% {
     opacity: 0;
     width: 100px;
