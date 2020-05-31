@@ -16,6 +16,12 @@ export default class App extends React.Component {
     });
   };
 
+  componentDidUpdate(prevProps, prevState, test) {
+    if (prevState.gameID !== this.state.gameID) {
+      setTimeout(() => this.setState({ search: false }), 750);
+    }
+  }
+
   render() {
     return this.state.search ? (
       <div className="App">
