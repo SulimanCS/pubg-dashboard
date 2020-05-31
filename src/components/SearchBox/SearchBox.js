@@ -22,6 +22,7 @@ export default class SearchBox extends React.Component {
           placeholder="PUBG ID..."
           id={this.state.show ? "search" : "search-hide"}
           onKeyDown={this.handleSubmission}
+          autoComplete="off"
         />
       </div>
     );
