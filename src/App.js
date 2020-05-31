@@ -6,6 +6,7 @@ export default class App extends React.Component {
   state = {
     gameID: null,
     accountID: null,
+    search: true,
   };
 
   callback = (gameID, accountID) => {
@@ -16,12 +17,12 @@ export default class App extends React.Component {
   };
 
   render() {
-    return (
+    return this.state.search ? (
       <div className="App">
         <header className="App-header">
           <SearchBox callback={this.callback} />
         </header>
       </div>
-    );
+    ) : null;
   }
 }
