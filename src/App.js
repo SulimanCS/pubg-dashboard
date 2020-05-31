@@ -23,6 +23,10 @@ export default class App extends React.Component {
           <SearchBox callback={this.callback} />
         </header>
       </div>
-    ) : null;
+    ) : (
+      <div className="App">
+        <header className="App-header disable-particles"></header>
+      </div>
+    );
   }
 }
