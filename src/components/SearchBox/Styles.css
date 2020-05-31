@@ -77,3 +77,41 @@
   font-size: calc(5px + 2vmin);
 }
  */
+
+#search-hide {
+  margin: auto;
+  width: 300px;
+  height: 50px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background: silver;
+  color: rgba(0, 0, 0, 0.8);
+  padding: 0 80px 0 20px;
+  box-shadow: 0 0 1px 0 beige, 0 20px 25px 0 rgba(0, 0, 0, 0.2);
+  transition: all 1s;
+  opacity: 1;
+  z-index: 5;
+  font-weight: bolder;
+  letter-spacing: 0.1em;
+  box-sizing: border-box;
+  animation: search-end 1s ease;
+  animation-fill-mode: forwards;
+}
+
+@keyframes search-end {
+  0% {
+    opacity: 1;
+    width: 300px;
+    letter-spacing: 0.1em;
+    background: silver;
+    color: rgba(0, 0, 0, 0.8);
+  }
+  100% {
+    opacity: 0;
+    width: 100px;
+    letter-spacing: 0.5em;
+    background: #1e1e1e;
+    color: rgba(255, 255, 255, 0.8);
+  }
+}
