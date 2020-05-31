@@ -22,6 +22,7 @@ export default class SearchBox extends React.Component {
         const accountID = data["data"][0]["id"];
         console.log(gameID, accountID);
         this.setState({ show: false });
+        this.props.callback(gameID, accountID);
       })
       .catch((err) => console.log(err));
   };
