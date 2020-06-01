@@ -13,6 +13,28 @@ export default class Dashboard extends React.Component {
             <div>Hello Player</div>
             <div>STEAM</div>
           </div>
+          <div className="dashboard-widgets">
+            <div className="widget">
+              <div>info</div>
+              <div>:</div>
+              <div>info</div>
+            </div>
+            <div className="widget">
+              <div>info</div>
+              <div>:</div>
+              <div>info</div>
+            </div>
+            <div className="widget">
+              <div>info</div>
+              <div>:</div>
+              <div>info</div>
+            </div>
+            <div className="widget">
+              <div>info</div>
+              <div>:</div>
+              <div>info</div>
+            </div>
+          </div>
         </main>
         <footer className="footer"></footer>
       </div>
