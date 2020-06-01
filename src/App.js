@@ -1,5 +1,6 @@
 import React from "react";
 import SearchBox from "./components/SearchBox/SearchBox";
+import Dashboard from "./components/Dashboard/Dashboard";
 import "./App.css";
 
 export default class App extends React.Component {
@@ -31,7 +32,9 @@ export default class App extends React.Component {
       </div>
     ) : (
       <div className="App">
-        <header className="App-header disable-particles"></header>
+        <header className="disable-particles">
+          <Dashboard />
+        </header>
       </div>
     );
   }
