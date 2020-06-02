@@ -20,9 +20,10 @@ export default class SearchBox extends React.Component {
       .then((data) => {
         const gameID = data["data"][0]["attributes"]["name"];
         const accountID = data["data"][0]["id"];
+        const matches = data["data"][0]["relationships"]["matches"];
         console.log(gameID, accountID);
         this.setState({ show: false });
-        this.props.callback(gameID, accountID);
+        this.props.callback(gameID, accountID, matches);
       })
       .catch((err) => console.log(err));
   };

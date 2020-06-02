@@ -10,10 +10,11 @@ export default class App extends React.Component {
     search: true,
   };
 
-  callback = (gameID, accountID) => {
+  callback = (gameID, accountID, matches) => {
     this.setState({
       gameID: gameID,
       accountID: accountID,
+      matches: matches,
     });
   };
 
@@ -36,6 +37,7 @@ export default class App extends React.Component {
           <Dashboard
             gameID={this.state.gameID}
             accoutnID={this.state.accountID}
+            matches={this.state.matches}
           />
         </header>
       </div>
