@@ -5,6 +5,7 @@ import TOKEN from "../../TOKEN";
 export default class Dashboard extends React.Component {
   state = {
     lifetimeStats: {},
+    loaded: false,
   };
 
   async componentDidMount() {
@@ -22,13 +23,14 @@ export default class Dashboard extends React.Component {
         console.log(data["data"]["attributes"]["gameModeStats"]);
         this.setState({
           lifetimeStats: data["data"]["attributes"]["gameModeStats"],
+          loaded: true,
         });
       })
       .catch((err) => null);
   }
 
   render() {
-    return (
+    return this.state.loaded ? (
       <div className="container">
         <header className="header"></header>
         <aside className="side-options"></aside>
@@ -103,7 +105,7 @@ export default class Dashboard extends React.Component {
         </main>
         <footer className="footer"></footer>
       </div>
-    );
+    ) : null;
   }
   // }
 }
