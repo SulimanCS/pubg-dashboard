@@ -36,7 +36,43 @@ export default class Dashboard extends React.Component {
             </div>
           </div>
           <div className="dashboard-space">
-            <div className="space">Placeholder</div>
+            <div className="space">
+              <div className="space-row">
+                <div>info</div>
+                <div>:</div>
+                <div>info</div>
+              </div>
+              <div className="space-row">
+                <div>info</div>
+                <div>:</div>
+                <div>info</div>
+              </div>
+              <div className="space-row">
+                <div>info</div>
+                <div>:</div>
+                <div>info</div>
+              </div>
+              <div className="space-row">
+                <div>info</div>
+                <div>:</div>
+                <div>info</div>
+              </div>
+              <div className="space-row">
+                <div>info</div>
+                <div>:</div>
+                <div>info</div>
+              </div>
+              <div className="space-row">
+                <div>info</div>
+                <div>:</div>
+                <div>info</div>
+              </div>
+              <div className="space-row">
+                <div>info</div>
+                <div>:</div>
+                <div>info</div>
+              </div>
+            </div>
             <div className="space">Placeholder</div>
             <div className="space">Placeholder</div>
           </div>
