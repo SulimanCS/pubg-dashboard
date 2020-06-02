@@ -10,7 +10,7 @@ export default class Dashboard extends React.Component {
   };
 
   async componentDidMount() {
-    let options = {
+    const options = {
       headers: {
         "Authorization": "Bearer " + TOKEN,
         "Accept": "application/vnd.api+json",
