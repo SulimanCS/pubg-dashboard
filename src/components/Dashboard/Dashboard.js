@@ -35,6 +35,11 @@ export default class Dashboard extends React.Component {
               <div>info</div>
             </div>
           </div>
+          <div className="dashboard-space">
+            <div className="space">Placeholder</div>
+            <div className="space">Placeholder</div>
+            <div className="space">Placeholder</div>
+          </div>
         </main>
         <footer className="footer"></footer>
       </div>
