@@ -32,12 +32,28 @@ export default class Dashboard extends React.Component {
 
     // get ID of the last match played
     const lastMatchID = this.getLastGameID(this.props.matches);
+    if (lastMatchID !== null) {
+      const lastGame = await this.getMatchStats(lastMatchID);
+    }
   }
 
   getLastGameID = (matches) => {
     console.log(matches);
     if (matches.length === 0) return null;
     return matches["data"][0]["id"];
+  };
+
+  getMatchStats = async (matchID) => {
+    const options = {
+      headers: {
+        "Authorization": "Bearer " + TOKEN,
+        "Accept": "application/vnd.api+json",
+      },
+    };
+    const url = `https://api.pubg.com/shards/steam/matches/${matchID}`;
+    const response = await fetch(url, options);
+    const game = await response.json();
+    return game;
   };
 
   render() {
