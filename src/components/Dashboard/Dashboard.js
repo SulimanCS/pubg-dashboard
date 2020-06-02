@@ -54,10 +54,11 @@ export default class Dashboard extends React.Component {
             <div>STEAM</div>
           </div>
           <div className="dashboard-widgets">
-            <div className="widget">
-              <div>info</div>
-              <div>:</div>
-              <div>info</div>
+            <div
+              className="widget"
+              style={{ justifyContent: "center", fontSize: "1.3em" }}
+            >
+              <div>Last Game</div>
             </div>
             <div className="widget">
               <div>info</div>
@@ -77,6 +78,7 @@ export default class Dashboard extends React.Component {
           </div>
           <div className="dashboard-space">
             <div className="space">
+              <h1 style={{ marginBottom: 10 }}>Lifeitme Stats</h1>
               <div className="space-row">
                 <div>Wins</div>
                 <div className="separator">:</div>
