@@ -55,6 +55,23 @@ export default class Dashboard extends React.Component {
     return game;
   };
 
+  extractPlayerStats = (matchObj) => {
+    const players = matchObj["included"];
+    let matchStats = null;
+    players.forEach((element) => {
+      const attributes = element["attributes"];
+      if (attributes.hasOwnProperty("stats")) {
+        const stats = attributes["stats"];
+        if (stats.hasOwnProperty("name")) {
+          if (stats["name"] == this.props.gameID) {
+            matchStats = stats;
+          }
+        }
+      }
+    });
+    return matchStats;
+  };
+
   render() {
     // extract data based on mode
     const data = this.state.lifetimeStats[this.state.mode];
