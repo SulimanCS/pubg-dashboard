@@ -33,7 +33,10 @@ export default class App extends React.Component {
     ) : (
       <div className="App">
         <header className="disable-particles">
-          <Dashboard />
+          <Dashboard
+            gameID={this.state.gameID}
+            accoutnID={this.state.accountID}
+          />
         </header>
       </div>
     );

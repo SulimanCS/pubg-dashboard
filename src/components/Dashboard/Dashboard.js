@@ -10,7 +10,7 @@ export default class Dashboard extends React.Component {
         <aside className="side-options"></aside>
         <main className="dashboard">
           <div className="dashboard-header">
-            <div>Hello Player</div>
+            <div>Hello {this.props.gameID}</div>
             <div>STEAM</div>
           </div>
           <div className="dashboard-widgets">
