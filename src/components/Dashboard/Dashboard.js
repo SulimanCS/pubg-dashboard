@@ -7,6 +7,7 @@ export default class Dashboard extends React.Component {
     lifetimeStats: {},
     loaded: false,
     mode: "solo",
+    lastMatchStats: null,
   };
 
   async componentDidMount() {
@@ -25,7 +26,6 @@ export default class Dashboard extends React.Component {
         // console.log(data["data"]["attributes"]["gameModeStats"]);
         this.setState({
           lifetimeStats: data["data"]["attributes"]["gameModeStats"],
-          loaded: true,
         });
       })
       .catch((err) => null);
@@ -33,8 +33,10 @@ export default class Dashboard extends React.Component {
     // get ID of the last match played
     const lastMatchID = this.getLastGameID(this.props.matches);
     if (lastMatchID !== null) {
-      const lastGame = await this.getMatchStats(lastMatchID);
-    }
+      const matchObj = await this.getMatchStats(lastMatchID);
+      const playerStats = this.extractPlayerStats(matchObj);
+      this.setState({ lastMatchStats: playerStats, loaded: true });
+    } else this.setState({ loaded: true });
   }
 
   getLastGameID = (matches) => {
