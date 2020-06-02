@@ -10,6 +10,7 @@ export default class Dashboard extends React.Component {
   };
 
   async componentDidMount() {
+    // get player lifetime stats for all modes
     const options = {
       headers: {
         "Authorization": "Bearer " + TOKEN,
@@ -28,7 +29,16 @@ export default class Dashboard extends React.Component {
         });
       })
       .catch((err) => null);
+
+    // get ID of the last match played
+    const lastMatchID = this.getLastGameID(this.props.matches);
   }
+
+  getLastGameID = (matches) => {
+    console.log(matches);
+    if (matches.length === 0) return null;
+    return matches["data"][0]["id"];
+  };
 
   render() {
     // extract data based on mode
