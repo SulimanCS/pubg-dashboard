@@ -38,8 +38,7 @@ export default class Dashboard extends React.Component {
   }
 
   getLastGameID = (matches) => {
-    console.log(matches);
-    if (matches.length === 0) return null;
+    if (matches["data"].length === 0) return null;
     return matches["data"][0]["id"];
   };
 
