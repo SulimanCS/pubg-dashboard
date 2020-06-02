@@ -3,6 +3,30 @@ import "./Styles.css";
 import TOKEN from "../../TOKEN";
 
 export default class Dashboard extends React.Component {
+  state = {
+    lifetimeStats: {},
+  };
+
+  async componentDidMount() {
+    let options = {
+      headers: {
+        "Authorization": "Bearer " + TOKEN,
+        "Accept": "application/vnd.api+json",
+      },
+    };
+    let url = `https://api.pubg.com/shards/steam/players/${this.props.accountID}/seasons/lifetime`;
+    fetch(url, options)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        console.log(data["data"]["attributes"]["gameModeStats"]);
+        this.setState({
+          lifetimeStats: data["data"]["attributes"]["gameModeStats"],
+        });
+      })
+      .catch((err) => null);
+  }
+
   render() {
     return (
       <div className="container">
