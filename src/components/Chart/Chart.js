@@ -8,6 +8,7 @@ var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 export default class Chart extends React.Component {
   state = {
+    gameID: this.props.gameID,
     matches: this.props.matches,
     needMore: false,
     loaded: false,

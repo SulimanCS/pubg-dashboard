@@ -267,6 +267,7 @@ export default class Dashboard extends React.Component {
               <div className="space">
                 <Chart
                   style={{ position: "relative", backgroundColor: "#F5DEB3" }}
+                  gameID={this.state.gameID}
                   matches={this.state.matches}
                 />
               </div>
