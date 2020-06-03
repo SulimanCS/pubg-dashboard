@@ -9,11 +9,21 @@ var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 export default class Graph extends React.Component {
   state = {
     matches: this.props.matches,
-    loaded: true,
+    needMore: false,
+    loaded: false,
   };
+
   async componentDidMount() {
-    console.log(this.state);
+    await this.getChartData();
+    this.setState({ loaded: true });
   }
+
+  getChartData = async () => {
+    if (this.state.matches["data"].length < 10) {
+      this.setState({ needMore: true });
+      return;
+    }
+  };
 
   render() {
     const options = {
@@ -68,10 +78,14 @@ export default class Graph extends React.Component {
     };
     return this.state.loaded ? (
       <div className="chart">
-        <CanvasJSChart
-          options={options}
-          /* onRef={ref => this.chart = ref} */
-        />
+        {this.state.needMore ? (
+          "There isn't enough data to generate a chart -  play more matches"
+        ) : (
+          <CanvasJSChart
+            options={options}
+            /* onRef={ref => this.chart = ref} */
+          />
+        )}
         {/*You can get reference to the chart instance as shown above using onRef. This allows you to access all chart properties and methods*/}
       </div>
     ) : (
