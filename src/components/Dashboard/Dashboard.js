@@ -113,7 +113,7 @@ export default class Dashboard extends React.Component {
     const lastMatchStats = this.state.lastMatchStats;
     const lastMatchRank = lastMatchStats ? lastMatchStats["winPlace"] : "N/A";
     const lastMatchKills = lastMatchStats ? lastMatchStats["kills"] : "N/A";
-    const lastMatchAssists = lastMatchStats ? lastMatchStats["Assists"] : "N/A";
+    const lastMatchAssists = lastMatchStats ? lastMatchStats["assists"] : "N/A";
 
     return this.state.loaded ? (
       <div
