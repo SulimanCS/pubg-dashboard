@@ -6,7 +6,7 @@ import TOKEN from "../../TOKEN";
 var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
-export default class Graph extends React.Component {
+export default class Chart extends React.Component {
   state = {
     matches: this.props.matches,
     needMore: false,

@@ -1,7 +1,7 @@
 import React from "react";
 import "./Styles.css";
 import TOKEN from "../../TOKEN";
-import Graph from "../Graph/Graph";
+import Chart from "../Chart/Chart";
 
 export default class Dashboard extends React.Component {
   // props set to state on purpose to disable component re-render
@@ -265,7 +265,7 @@ export default class Dashboard extends React.Component {
                 </div>
               </div>
               <div className="space">
-                <Graph
+                <Chart
                   style={{ position: "relative", backgroundColor: "#F5DEB3" }}
                   matches={this.state.matches}
                 />
