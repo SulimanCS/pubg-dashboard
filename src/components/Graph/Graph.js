@@ -9,8 +9,9 @@ var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 export default class Graph extends React.Component {
   state = {
     matches: this.props.matches,
+    loaded: true,
   };
-  componentDidMount() {
+  async componentDidMount() {
     console.log(this.state);
   }
 
@@ -65,7 +66,7 @@ export default class Graph extends React.Component {
         },
       ],
     };
-    return (
+    return this.state.loaded ? (
       <div className="chart">
         <CanvasJSChart
           options={options}
@@ -73,6 +74,8 @@ export default class Graph extends React.Component {
         />
         {/*You can get reference to the chart instance as shown above using onRef. This allows you to access all chart properties and methods*/}
       </div>
+    ) : (
+      <div className="chart">Loading...</div>
     );
   }
 }
