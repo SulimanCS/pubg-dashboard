@@ -1,6 +1,7 @@
 import React from "react";
 import "./Styles.css";
 import TOKEN from "../../TOKEN";
+import Graph from "../Graph/Graph";
 
 export default class Dashboard extends React.Component {
   // props set to state on purpose to disable component re-render
@@ -263,7 +264,12 @@ export default class Dashboard extends React.Component {
                   <div style={{ color: "#A0060F" }}>{dBNOs}</div>
                 </div>
               </div>
-              <div className="space">Placeholder</div>
+              <div className="space">
+                <Graph
+                  style={{ position: "relative", backgroundColor: "#F5DEB3" }}
+                  matches={this.state.matches}
+                />
+              </div>
               <div className="space">Placeholder</div>
             </div>
           </main>
