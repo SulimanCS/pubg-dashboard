@@ -88,6 +88,11 @@ export default class Dashboard extends React.Component {
     const heals = data ? data["heals"] : null;
     const dBNOs = data ? data["dBNOs"] : null;
 
+    const lastMatchStats = this.state.lastMatchStats;
+    const lastMatchRank = lastMatchStats ? lastMatchStats["winPlace"] : "N/A";
+    const lastMatchKills = lastMatchStats ? lastMatchStats["kills"] : "N/A";
+    const lastMatchAssists = lastMatchStats ? lastMatchStats["Assists"] : "N/A";
+
     return this.state.loaded ? (
       <div className="container">
         <header className="header"></header>
@@ -105,19 +110,19 @@ export default class Dashboard extends React.Component {
               <div>Last Game</div>
             </div>
             <div className="widget">
-              <div>info</div>
+              <div>Rank</div>
               <div>:</div>
-              <div>info</div>
+              <div>{lastMatchRank}</div>
             </div>
             <div className="widget">
-              <div>info</div>
+              <div>Kills</div>
               <div>:</div>
-              <div>info</div>
+              <div>{lastMatchKills}</div>
             </div>
             <div className="widget">
-              <div>info</div>
+              <div>Assists</div>
               <div>:</div>
-              <div>info</div>
+              <div>{lastMatchAssists}</div>
             </div>
           </div>
           <div className="dashboard-space">
