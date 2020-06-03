@@ -96,7 +96,14 @@ export default class Dashboard extends React.Component {
     return this.state.loaded ? (
       <div className="container">
         <header className="header"></header>
-        <aside className="side-options"></aside>
+        <aside className="side-options">
+          <ul>
+            <li>Placeholder option</li>
+            <li>Placeholder option</li>
+            <li>Placeholder option</li>
+            <li>Placeholder option</li>
+          </ul>
+        </aside>
         <main className="dashboard">
           <div className="dashboard-header">
             <div>Hello {this.props.gameID}</div>

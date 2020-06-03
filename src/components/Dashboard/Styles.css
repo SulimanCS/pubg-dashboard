@@ -13,7 +13,7 @@
 
 .container {
   display: grid;
-  grid-template-columns: 200px 1fr;
+  grid-template-columns: 0.1fr 1fr;
   grid-template-rows: 1fr 50px;
   grid-template-areas:
     "side-options dashboard"
@@ -101,5 +101,16 @@
 .separator {
   position: absolute;
   margin-left: 50%;
+}
+
+.side-options {
+  grid-area: side-options;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  min-width: 150px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  background-color: rgb(57, 66, 99, 0.8);
 }
 
