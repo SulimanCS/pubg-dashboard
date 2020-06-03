@@ -78,6 +78,10 @@ export default class Dashboard extends React.Component {
     this.setState({ mode: mode }, () => console.log(`mode changed to ${mode}`));
   };
 
+  currentMode = (mode) => {
+    return mode === this.state.mode;
+  };
+
   render() {
     // extract data based on mode
     const data = this.state.lifetimeStats[this.state.mode];
@@ -103,7 +107,9 @@ export default class Dashboard extends React.Component {
           <div className="options-list">
             <ul>
               <li
-                className="option"
+                className={
+                  this.currentMode("solo") ? "option option-active" : "option"
+                }
                 onClick={() => {
                   this.handleOptionClick("solo");
                 }}
@@ -111,7 +117,11 @@ export default class Dashboard extends React.Component {
                 Solo
               </li>
               <li
-                className="option"
+                className={
+                  this.currentMode("solo-fpp")
+                    ? "option option-active"
+                    : "option"
+                }
                 onClick={() => {
                   this.handleOptionClick("solo-fpp");
                 }}
@@ -119,7 +129,9 @@ export default class Dashboard extends React.Component {
                 Solo-FPP
               </li>
               <li
-                className="option"
+                className={
+                  this.currentMode("duo") ? "option option-active" : "option"
+                }
                 onClick={() => {
                   this.handleOptionClick("duo");
                 }}
@@ -127,7 +139,11 @@ export default class Dashboard extends React.Component {
                 Duo
               </li>
               <li
-                className="option"
+                className={
+                  this.currentMode("duo-fpp")
+                    ? "option option-active"
+                    : "option"
+                }
                 onClick={() => {
                   this.handleOptionClick("duo-fpp");
                 }}
@@ -135,7 +151,9 @@ export default class Dashboard extends React.Component {
                 Duo-FPP
               </li>
               <li
-                className="option"
+                className={
+                  this.currentMode("squad") ? "option option-active" : "option"
+                }
                 onClick={() => {
                   this.handleOptionClick("squad");
                 }}
@@ -143,7 +161,11 @@ export default class Dashboard extends React.Component {
                 Squads
               </li>
               <li
-                className="option"
+                className={
+                  this.currentMode("squad-fpp")
+                    ? "option option-active"
+                    : "option"
+                }
                 onClick={() => {
                   this.handleOptionClick("squad-fpp");
                 }}
