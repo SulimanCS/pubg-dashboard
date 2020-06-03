@@ -42,7 +42,7 @@
   background-color: #e3e4e6;
   color: rgb(61, 63, 65);
   box-shadow: 0 0 10px 0 black, 0 20px 25px 0 rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
+  border-radius: 1px;
   font-weight: 600;
 }
 
@@ -63,7 +63,7 @@
   background-color: rgba(160, 6, 15, 0.6);
   color: white;
   box-shadow: 5px 5px 10px 0 black, 0 20px 25px 0 rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
+  border-radius: 1px;
 }
 
 .dashboard-space {
@@ -84,7 +84,7 @@
   /* */
   background-color: #bfbfbf;
   box-shadow: 0 0 10px 0 black, 0 20px 25px 0 rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
+  border-radius: 1px;
 }
 
 .space-row {
