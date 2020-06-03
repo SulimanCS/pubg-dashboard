@@ -36,7 +36,7 @@ export default class App extends React.Component {
         <header className="disable-particles">
           <Dashboard
             gameID={this.state.gameID}
-            accoutnID={this.state.accountID}
+            accountID={this.state.accountID}
             matches={this.state.matches}
           />
         </header>
