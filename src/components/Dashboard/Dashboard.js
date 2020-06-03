@@ -97,12 +97,16 @@ export default class Dashboard extends React.Component {
       <div className="container">
         <header className="header"></header>
         <aside className="side-options">
-          <ul>
-            <li>Placeholder option</li>
-            <li>Placeholder option</li>
-            <li>Placeholder option</li>
-            <li>Placeholder option</li>
-          </ul>
+          <div className="options-list">
+            <ul>
+              <li className="option">Solo</li>
+              <li className="option">Solo-FPP</li>
+              <li className="option">Duo</li>
+              <li className="option">Duo-FPP</li>
+              <li className="option">Squads</li>
+              <li className="option">Squads-FPP</li>
+            </ul>
+          </div>
         </aside>
         <main className="dashboard">
           <div className="dashboard-header">

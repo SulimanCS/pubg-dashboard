@@ -110,8 +110,28 @@
   flex-direction: column;
   height: 100%;
   width: 100%;
-  min-width: 150px;
+  min-width: 200px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
   background-color: rgb(57, 66, 99, 0.8);
+}
+
+.options-list {
+  padding: 0;
+  margin-top: 200px;
+  list-style-type: none;
+}
+
+.option {
+  padding: 15px;
+  color: white;
+}
+
+.option:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.option-active {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
