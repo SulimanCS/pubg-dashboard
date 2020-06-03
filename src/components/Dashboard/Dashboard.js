@@ -74,10 +74,13 @@ export default class Dashboard extends React.Component {
     return matchStats;
   };
 
+  handleOptionClick = (mode) => {
+    this.setState({ mode: mode }, () => console.log(`mode changed to ${mode}`));
+  };
+
   render() {
     // extract data based on mode
     const data = this.state.lifetimeStats[this.state.mode];
-    console.log(data);
 
     // extract specific stats from data obj
     const wins = data ? data["wins"] : null;
@@ -99,12 +102,54 @@ export default class Dashboard extends React.Component {
         <aside className="side-options">
           <div className="options-list">
             <ul>
-              <li className="option">Solo</li>
-              <li className="option">Solo-FPP</li>
-              <li className="option">Duo</li>
-              <li className="option">Duo-FPP</li>
-              <li className="option">Squads</li>
-              <li className="option">Squads-FPP</li>
+              <li
+                className="option"
+                onClick={() => {
+                  this.handleOptionClick("solo");
+                }}
+              >
+                Solo
+              </li>
+              <li
+                className="option"
+                onClick={() => {
+                  this.handleOptionClick("solo-fpp");
+                }}
+              >
+                Solo-FPP
+              </li>
+              <li
+                className="option"
+                onClick={() => {
+                  this.handleOptionClick("duo");
+                }}
+              >
+                Duo
+              </li>
+              <li
+                className="option"
+                onClick={() => {
+                  this.handleOptionClick("duo-fpp");
+                }}
+              >
+                Duo-FPP
+              </li>
+              <li
+                className="option"
+                onClick={() => {
+                  this.handleOptionClick("squad");
+                }}
+              >
+                Squads
+              </li>
+              <li
+                className="option"
+                onClick={() => {
+                  this.handleOptionClick("squad-fpp");
+                }}
+              >
+                Squads-FPP
+              </li>
             </ul>
           </div>
         </aside>
