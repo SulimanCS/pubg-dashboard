@@ -44,14 +44,12 @@ export default class App extends React.Component {
       </div>
     ) : (
       <div className="App">
-        <header className="disable-particles">
-          <Dashboard
-            gameID={this.state.gameID}
-            accountID={this.state.accountID}
-            matches={this.state.matches}
-            callback={this.searchCallback}
-          />
-        </header>
+        <Dashboard
+          gameID={this.state.gameID}
+          accountID={this.state.accountID}
+          matches={this.state.matches}
+          callback={this.searchCallback}
+        />
       </div>
     );
   }

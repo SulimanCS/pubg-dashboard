@@ -14,6 +14,7 @@ export default class Dashboard extends React.Component {
     loaded: false,
     mode: "solo",
     lastMatchStats: null,
+    show: true,
   };
 
   async componentDidMount() {
@@ -89,6 +90,12 @@ export default class Dashboard extends React.Component {
     return mode === this.state.mode;
   };
 
+  handleAnotherSearch = () => {
+    this.setState({ show: false }, () => {
+      setTimeout(() => this.props.callback(null, null, null), 3000);
+    });
+  };
+
   render() {
     // extract data based on mode
     const data = this.state.lifetimeStats[this.state.mode];
@@ -108,159 +115,160 @@ export default class Dashboard extends React.Component {
     const lastMatchAssists = lastMatchStats ? lastMatchStats["Assists"] : "N/A";
 
     return this.state.loaded ? (
-      <div className="container">
-        <aside className="side-options">
-          <div className="options-list">
-            <ul>
-              <li
-                className={
-                  this.currentMode("solo") ? "option option-active" : "option"
-                }
-                onClick={() => {
-                  this.handleOptionClick("solo");
-                }}
-              >
-                Solo
-              </li>
-              <li
-                className={
-                  this.currentMode("solo-fpp")
-                    ? "option option-active"
-                    : "option"
-                }
-                onClick={() => {
-                  this.handleOptionClick("solo-fpp");
-                }}
-              >
-                Solo-FPP
-              </li>
-              <li
-                className={
-                  this.currentMode("duo") ? "option option-active" : "option"
-                }
-                onClick={() => {
-                  this.handleOptionClick("duo");
-                }}
-              >
-                Duo
-              </li>
-              <li
-                className={
-                  this.currentMode("duo-fpp")
-                    ? "option option-active"
-                    : "option"
-                }
-                onClick={() => {
-                  this.handleOptionClick("duo-fpp");
-                }}
-              >
-                Duo-FPP
-              </li>
-              <li
-                className={
-                  this.currentMode("squad") ? "option option-active" : "option"
-                }
-                onClick={() => {
-                  this.handleOptionClick("squad");
-                }}
-              >
-                Squads
-              </li>
-              <li
-                className={
-                  this.currentMode("squad-fpp")
-                    ? "option option-active"
-                    : "option"
-                }
-                onClick={() => {
-                  this.handleOptionClick("squad-fpp");
-                }}
-              >
-                Squads-FPP
-              </li>
-              <li
-                className="option"
-                onClick={() => {
-                  this.props.callback(null, null, null);
-                }}
-              >
-                Search another player
-              </li>
-            </ul>
-          </div>
-        </aside>
-        <main className="dashboard">
-          <div className="dashboard-header">
-            <div>Hello {this.state.gameID}</div>
-            <div>STEAM</div>
-          </div>
-          <div className="dashboard-widgets">
-            <div
-              className="widget"
-              style={{ justifyContent: "center", fontSize: "1.3em" }}
-            >
-              <div>Last Game</div>
+      <div
+        className={this.state.show ? "disable-particles" : "enable-particles"}
+      >
+        <div className={this.state.show ? "container" : "container-hide"}>
+          <aside className="side-options">
+            <div className="options-list">
+              <ul>
+                <li
+                  className={
+                    this.currentMode("solo") ? "option option-active" : "option"
+                  }
+                  onClick={() => {
+                    this.handleOptionClick("solo");
+                  }}
+                >
+                  Solo
+                </li>
+                <li
+                  className={
+                    this.currentMode("solo-fpp")
+                      ? "option option-active"
+                      : "option"
+                  }
+                  onClick={() => {
+                    this.handleOptionClick("solo-fpp");
+                  }}
+                >
+                  Solo-FPP
+                </li>
+                <li
+                  className={
+                    this.currentMode("duo") ? "option option-active" : "option"
+                  }
+                  onClick={() => {
+                    this.handleOptionClick("duo");
+                  }}
+                >
+                  Duo
+                </li>
+                <li
+                  className={
+                    this.currentMode("duo-fpp")
+                      ? "option option-active"
+                      : "option"
+                  }
+                  onClick={() => {
+                    this.handleOptionClick("duo-fpp");
+                  }}
+                >
+                  Duo-FPP
+                </li>
+                <li
+                  className={
+                    this.currentMode("squad")
+                      ? "option option-active"
+                      : "option"
+                  }
+                  onClick={() => {
+                    this.handleOptionClick("squad");
+                  }}
+                >
+                  Squads
+                </li>
+                <li
+                  className={
+                    this.currentMode("squad-fpp")
+                      ? "option option-active"
+                      : "option"
+                  }
+                  onClick={() => {
+                    this.handleOptionClick("squad-fpp");
+                  }}
+                >
+                  Squads-FPP
+                </li>
+                <li className="option" onClick={this.handleAnotherSearch}>
+                  Search another player
+                </li>
+              </ul>
             </div>
-            <div className="widget">
-              <div>Rank</div>
-              <div>:</div>
-              <div>{lastMatchRank}</div>
+          </aside>
+          <main className="dashboard">
+            <div className="dashboard-header">
+              <div>Hello {this.state.gameID}</div>
+              <div>STEAM</div>
             </div>
-            <div className="widget">
-              <div>Kills</div>
-              <div>:</div>
-              <div>{lastMatchKills}</div>
-            </div>
-            <div className="widget">
-              <div>Assists</div>
-              <div>:</div>
-              <div>{lastMatchAssists}</div>
-            </div>
-          </div>
-          <div className="dashboard-space">
-            <div className="space">
-              <h1 style={{ marginBottom: 10 }}>Lifeitme Stats</h1>
-              <div className="space-row">
-                <div>Wins</div>
-                <div className="separator">:</div>
-                <div style={{ color: "#A0060F" }}>{wins}</div>
+            <div className="dashboard-widgets">
+              <div
+                className="widget"
+                style={{ justifyContent: "center", fontSize: "1.3em" }}
+              >
+                <div>Last Game</div>
               </div>
-              <div className="space-row">
+              <div className="widget">
+                <div>Rank</div>
+                <div>:</div>
+                <div>{lastMatchRank}</div>
+              </div>
+              <div className="widget">
                 <div>Kills</div>
-                <div className="separator">:</div>
-                <div style={{ color: "#A0060F" }}>{kills}</div>
+                <div>:</div>
+                <div>{lastMatchKills}</div>
               </div>
-              <div className="space-row">
+              <div className="widget">
                 <div>Assists</div>
-                <div className="separator">:</div>
-                <div style={{ color: "#A0060F" }}>{assists}</div>
-              </div>
-              <div className="space-row">
-                <div>Boosts</div>
-                <div className="separator">:</div>
-                <div style={{ color: "#A0060F" }}>{boosts}</div>
-              </div>
-              <div className="space-row">
-                <div>Revives</div>
-                <div className="separator">:</div>
-                <div style={{ color: "#A0060F" }}>{revives}</div>
-              </div>
-              <div className="space-row">
-                <div>Heals</div>
-                <div className="separator">:</div>
-                <div style={{ color: "#A0060F" }}>{heals}</div>
-              </div>
-              <div className="space-row">
-                <div>dBNOs</div>
-                <div className="separator">:</div>
-                <div style={{ color: "#A0060F" }}>{dBNOs}</div>
+                <div>:</div>
+                <div>{lastMatchAssists}</div>
               </div>
             </div>
-            <div className="space">Placeholder</div>
-            <div className="space">Placeholder</div>
-          </div>
-        </main>
-        <footer className="footer"></footer>
+            <div className="dashboard-space">
+              <div className="space">
+                <h1 style={{ marginBottom: 10 }}>Lifeitme Stats</h1>
+                <div className="space-row">
+                  <div>Wins</div>
+                  <div className="separator">:</div>
+                  <div style={{ color: "#A0060F" }}>{wins}</div>
+                </div>
+                <div className="space-row">
+                  <div>Kills</div>
+                  <div className="separator">:</div>
+                  <div style={{ color: "#A0060F" }}>{kills}</div>
+                </div>
+                <div className="space-row">
+                  <div>Assists</div>
+                  <div className="separator">:</div>
+                  <div style={{ color: "#A0060F" }}>{assists}</div>
+                </div>
+                <div className="space-row">
+                  <div>Boosts</div>
+                  <div className="separator">:</div>
+                  <div style={{ color: "#A0060F" }}>{boosts}</div>
+                </div>
+                <div className="space-row">
+                  <div>Revives</div>
+                  <div className="separator">:</div>
+                  <div style={{ color: "#A0060F" }}>{revives}</div>
+                </div>
+                <div className="space-row">
+                  <div>Heals</div>
+                  <div className="separator">:</div>
+                  <div style={{ color: "#A0060F" }}>{heals}</div>
+                </div>
+                <div className="space-row">
+                  <div>dBNOs</div>
+                  <div className="separator">:</div>
+                  <div style={{ color: "#A0060F" }}>{dBNOs}</div>
+                </div>
+              </div>
+              <div className="space">Placeholder</div>
+              <div className="space">Placeholder</div>
+            </div>
+          </main>
+          <footer className="footer"></footer>
+        </div>
       </div>
     ) : null;
   }

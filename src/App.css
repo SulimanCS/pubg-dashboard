@@ -35,19 +35,3 @@
     transform: rotate(360deg);
   }
 }
-
-.disable-particles {
-  /* #1e1e1e */
-  background-color: rgba(30, 30, 30, 1);
-  animation: change-background 2s ease-in-out;
-  min-height: 100vh;
-}
-
-@keyframes change-background {
-  0% {
-    background-color: rgba(30, 30, 30, 0);
-  }
-  100% {
-    background-color: rgba(30, 30, 30, 1);
-  }
-}

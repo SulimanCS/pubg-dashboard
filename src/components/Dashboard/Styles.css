@@ -164,3 +164,58 @@
 
 }
 
+.container-hide {
+  font-family: "Asap Condensed", sans-serif;
+  display: grid;
+  grid-template-columns: 0.1fr 1fr;
+  grid-template-rows: 1fr 50px;
+  grid-template-areas:
+    "side-options dashboard"
+    "side-options footer";
+  opacity: 1;
+  min-height: 100vh;
+  animation: dashboard-hide 2s ease-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes dashboard-hide {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.98);
+    opacity: 0;
+  }
+}
+
+.disable-particles {
+  /* #1e1e1e */
+  background-color: rgba(30, 30, 30, 1);
+  animation: change-background 2s ease-in-out;
+}
+
+@keyframes change-background {
+  0% {
+    background-color: rgba(30, 30, 30, 0);
+  }
+  100% {
+    background-color: rgba(30, 30, 30, 1);
+  }
+}
+
+.enable-particles {
+  /* #1e1e1e */
+  background-color: rgba(30, 30, 30, 1);
+  animation: disable-background 2s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes disable-background {
+  0% {
+    background-color: rgba(30, 30, 30, 1);
+  }
+  100% {
+    background-color: rgba(30, 30, 30, 0);
+  }
+}
