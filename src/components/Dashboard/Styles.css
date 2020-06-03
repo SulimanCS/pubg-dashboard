@@ -18,7 +18,25 @@
   grid-template-areas:
     "side-options dashboard"
     "side-options footer";
+  opacity: 0;
   min-height: 100vh;
+  animation: dashboard 4s ease-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes dashboard {
+  0% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .side-options {
@@ -112,7 +130,11 @@
   width: 100%;
   min-width: 200px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
-  background-color: rgb(57, 66, 99, 0.8);
+  background: linear-gradient(
+    to right,
+    rgba(57, 66, 99, 0.8) 90%,
+    rgba(57, 66, 99, 0.5)
+  );
 }
 
 .options-list {
