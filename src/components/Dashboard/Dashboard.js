@@ -3,7 +3,13 @@ import "./Styles.css";
 import TOKEN from "../../TOKEN";
 
 export default class Dashboard extends React.Component {
+  // props set to state on purpose to disable component re-render
+  // when a prop gets updated. This is necessary to enable
+  // the "return-back" to the search page feature,
   state = {
+    gameID: this.props.gameID,
+    accountID: this.props.accountID,
+    matches: this.props.matches,
     lifetimeStats: {},
     loaded: false,
     mode: "solo",
@@ -18,7 +24,7 @@ export default class Dashboard extends React.Component {
         "Accept": "application/vnd.api+json",
       },
     };
-    let url = `https://api.pubg.com/shards/steam/players/${this.props.accountID}/seasons/lifetime`;
+    let url = `https://api.pubg.com/shards/steam/players/${this.state.accountID}/seasons/lifetime`;
     fetch(url, options)
       .then((res) => res.json())
       .then((data) => {
@@ -31,7 +37,7 @@ export default class Dashboard extends React.Component {
       .catch((err) => null);
 
     // get ID of the last match played
-    const lastMatchID = this.getLastGameID(this.props.matches);
+    const lastMatchID = this.getLastGameID(this.state.matches);
     if (lastMatchID !== null) {
       const matchObj = await this.getMatchStats(lastMatchID);
       const playerStats = this.extractPlayerStats(matchObj);
@@ -40,7 +46,8 @@ export default class Dashboard extends React.Component {
   }
 
   getLastGameID = (matches) => {
-    if (matches["data"].length === 0) return null;
+    if (matches["data"] == undefined || matches["data"].length === 0)
+      return null;
     return matches["data"][0]["id"];
   };
 
@@ -65,7 +72,7 @@ export default class Dashboard extends React.Component {
       if (attributes.hasOwnProperty("stats")) {
         const stats = attributes["stats"];
         if (stats.hasOwnProperty("name")) {
-          if (stats["name"] == this.props.gameID) {
+          if (stats["name"] == this.state.gameID) {
             matchStats = stats;
           }
         }
@@ -102,7 +109,6 @@ export default class Dashboard extends React.Component {
 
     return this.state.loaded ? (
       <div className="container">
-        <header className="header"></header>
         <aside className="side-options">
           <div className="options-list">
             <ul>
@@ -172,12 +178,20 @@ export default class Dashboard extends React.Component {
               >
                 Squads-FPP
               </li>
+              <li
+                className="option"
+                onClick={() => {
+                  this.props.callback(null, null, null);
+                }}
+              >
+                Search another player
+              </li>
             </ul>
           </div>
         </aside>
         <main className="dashboard">
           <div className="dashboard-header">
-            <div>Hello {this.props.gameID}</div>
+            <div>Hello {this.state.gameID}</div>
             <div>STEAM</div>
           </div>
           <div className="dashboard-widgets">

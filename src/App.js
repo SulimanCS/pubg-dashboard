@@ -7,6 +7,7 @@ export default class App extends React.Component {
   state = {
     gameID: null,
     accountID: null,
+    matches: [],
     search: true,
   };
 
@@ -18,8 +19,18 @@ export default class App extends React.Component {
     });
   };
 
-  componentDidUpdate(prevProps, prevState, test) {
-    if (prevState.gameID !== this.state.gameID) {
+  searchCallback = () => {
+    console.log("in SCB");
+    this.setState({
+      search: true,
+      gameID: null,
+      accountID: null,
+      matches: [],
+    });
+  };
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.gameID !== this.state.gameID && this.state.gameID !== null) {
       setTimeout(() => this.setState({ search: false }), 750);
     }
   }
@@ -38,6 +49,7 @@ export default class App extends React.Component {
             gameID={this.state.gameID}
             accountID={this.state.accountID}
             matches={this.state.matches}
+            callback={this.searchCallback}
           />
         </header>
       </div>
