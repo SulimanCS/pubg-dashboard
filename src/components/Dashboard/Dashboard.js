@@ -2,6 +2,7 @@ import React from "react";
 import "./Styles.css";
 import TOKEN from "../../TOKEN";
 import KillsChart from "../KillsChart/KillsChart";
+import RankChart from "../RankChart/RankChart";
 
 export default class Dashboard extends React.Component {
   // props set to state on purpose to disable component re-render
@@ -271,7 +272,13 @@ export default class Dashboard extends React.Component {
                   matches={this.state.matches}
                 />
               </div>
-              <div className="space">Placeholder</div>
+              <div className="space">
+                <RankChart
+                  style={{ position: "relative", backgroundColor: "#F5DEB3" }}
+                  gameID={this.state.gameID}
+                  matches={this.state.matches}
+                />
+              </div>
             </div>
           </main>
           <footer className="footer"></footer>
