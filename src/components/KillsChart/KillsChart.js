@@ -6,7 +6,7 @@ import TOKEN from "../../TOKEN";
 var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
-export default class Chart extends React.Component {
+export default class KillChart extends React.Component {
   state = {
     gameID: this.props.gameID,
     matches: this.props.matches,

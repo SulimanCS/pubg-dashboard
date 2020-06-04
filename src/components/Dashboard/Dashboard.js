@@ -1,7 +1,7 @@
 import React from "react";
 import "./Styles.css";
 import TOKEN from "../../TOKEN";
-import Chart from "../Chart/Chart";
+import KillsChart from "../KillsChart/KillsChart";
 
 export default class Dashboard extends React.Component {
   // props set to state on purpose to disable component re-render
@@ -265,7 +265,7 @@ export default class Dashboard extends React.Component {
                 </div>
               </div>
               <div className="space">
-                <Chart
+                <KillsChart
                   style={{ position: "relative", backgroundColor: "#F5DEB3" }}
                   gameID={this.state.gameID}
                   matches={this.state.matches}
