@@ -93,6 +93,17 @@
   margin: 20px;
 }
 
+@media (min-width: 1300px) {
+  .dashboard-space {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .space:nth-child(3) {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+}
+
 .space {
   display: flex;
   flex-direction: column;
