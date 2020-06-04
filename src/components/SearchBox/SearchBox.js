@@ -45,6 +45,7 @@ export default class SearchBox extends React.Component {
           id={this.state.show ? "search" : "search-hide"}
           onKeyDown={this.handleSubmission}
           autoComplete="off"
+          spellcheck="false"
         />
       </div>
     );
