@@ -1,7 +1,6 @@
 import React from "react";
 import CanvasJSReact from "../../assests/canvasjs.react";
 import "./Styles.css";
-import TOKEN from "../../TOKEN";
 
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
@@ -22,7 +21,6 @@ export default class RankChart extends React.Component {
   getMatchStats = async (matchID) => {
     const options = {
       headers: {
-        "Authorization": "Bearer " + TOKEN,
         "Accept": "application/vnd.api+json",
       },
     };
