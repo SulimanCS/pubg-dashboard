@@ -158,6 +158,8 @@
 }
 
 .options-list {
+  display: flex;
+  flex-direction: column;
   padding: 0;
   margin-top: 200px;
   list-style-type: none;
@@ -168,6 +170,22 @@
   color: white;
 }
 
+.option:nth-child(7) {
+  margin-top: 100px;
+}
+
+.option-separator {
+  align-self: center;
+  height: 1px;
+  width: calc(100% - 30px);
+  background: rgba(255, 255, 255, 0.5);
+  margin: 10px 0;
+}
+
+.option-title {
+  padding: 15px;
+  color: white;
+}
 .option:hover {
   transition: 0.5s ease;
   background-color: rgba(0, 0, 0, 0.2);

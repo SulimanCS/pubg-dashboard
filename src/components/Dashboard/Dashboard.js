@@ -125,6 +125,8 @@ export default class Dashboard extends React.Component {
         <div className={this.state.show ? "container" : "container-hide"}>
           <aside className="side-options">
             <div className="options-list">
+              <div className="option-title">Lifetime Stats Modes</div>
+              <div className="option-separator"></div>
               <ul>
                 <li
                   className={
@@ -195,7 +197,18 @@ export default class Dashboard extends React.Component {
                   Squads-FPP
                 </li>
                 <li className="option" onClick={this.handleAnotherSearch}>
-                  Search another player
+                  Search Another Player
+                </li>
+                <li
+                  className="option"
+                  onClick={() =>
+                    window.open(
+                      "https://github.com/SulimanCS/pubg-reports-mobile",
+                      "_blank"
+                    )
+                  }
+                >
+                  Check the Mobile App!
                 </li>
               </ul>
             </div>
