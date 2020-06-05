@@ -5,6 +5,7 @@ import TOKEN from "../../TOKEN";
 export default class SearchBox extends React.Component {
   state = {
     show: true,
+    class: "search-begin",
   };
 
   checkIDValidity = (ID) => {
@@ -22,7 +23,10 @@ export default class SearchBox extends React.Component {
         const accountID = data["data"][0]["id"];
         const matches = data["data"][0]["relationships"]["matches"];
         console.log(gameID, accountID);
-        this.setState({ show: false });
+        this.setState({
+          show: false,
+          class: "search-hide",
+        });
         this.props.callback(gameID, accountID, matches);
       })
       .catch((err) => console.log(err));
@@ -42,7 +46,7 @@ export default class SearchBox extends React.Component {
         <input
           type="text"
           placeholder="PUBG ID..."
-          id={this.state.show ? "search" : "search-hide"}
+          className={this.state.class}
           onKeyDown={this.handleSubmission}
           autoComplete="off"
           spellCheck="false"
