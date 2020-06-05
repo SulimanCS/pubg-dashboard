@@ -29,7 +29,20 @@ export default class SearchBox extends React.Component {
         });
         this.props.callback(gameID, accountID, matches);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        this.setState(
+          {
+            show: false,
+            class: "search error",
+          },
+          () => {
+            setTimeout(() => {
+              this.setState({ class: "search" });
+            }, 4000);
+          }
+        );
+      });
   };
 
   handleSubmission = (e) => {
