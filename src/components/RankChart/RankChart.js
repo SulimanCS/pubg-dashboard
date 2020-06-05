@@ -3,7 +3,6 @@ import CanvasJSReact from "../../assests/canvasjs.react";
 import "./Styles.css";
 import TOKEN from "../../TOKEN";
 
-var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 export default class RankChart extends React.Component {
@@ -41,7 +40,7 @@ export default class RankChart extends React.Component {
       if (attributes.hasOwnProperty("stats")) {
         const stats = attributes["stats"];
         if (stats.hasOwnProperty("name")) {
-          if (stats["name"] == this.state.gameID) {
+          if (stats["name"] === this.state.gameID) {
             matchStats = stats;
           }
         }

@@ -49,6 +49,7 @@ export default class Dashboard extends React.Component {
   }
 
   getLastGameID = (matches) => {
+    // eslint-disable-next-line
     if (matches["data"] == undefined || matches["data"].length === 0)
       return null;
     return matches["data"][0]["id"];
@@ -75,6 +76,7 @@ export default class Dashboard extends React.Component {
       if (attributes.hasOwnProperty("stats")) {
         const stats = attributes["stats"];
         if (stats.hasOwnProperty("name")) {
+          // eslint-disable-next-line
           if (stats["name"] == this.state.gameID) {
             matchStats = stats;
           }
