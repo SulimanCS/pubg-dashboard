@@ -54,14 +54,18 @@ export default class KillChart extends React.Component {
     }
     let x = 1;
     for (let i = 9; i > -1; i--) {
-      const matchID = this.state.matches["data"][i]["id"];
-      const game = await this.getMatchStats(matchID);
-      const stats = await this.extractPlayerStats(game);
-      console.log(matchID);
-      console.log(stats);
-      const obj = { x: x, y: stats["kills"] };
-      x++;
-      this.setState({ stats: [obj, ...this.state.stats] });
+      try {
+        const matchID = this.state.matches["data"][i]["id"];
+        const game = await this.getMatchStats(matchID);
+        const stats = await this.extractPlayerStats(game);
+        console.log(matchID);
+        console.log(stats);
+        const obj = { x: x, y: stats["kills"] };
+        x++;
+        this.setState({ stats: [obj, ...this.state.stats] });
+      } catch (error) {
+        continue;
+      }
     }
     console.log(this.state.stats);
   };
