@@ -78,6 +78,7 @@ export default class RankChart extends React.Component {
         text: "Performance Over the Past 10 Games [rank]",
       },
       axisY: {
+        reversed: true,
         title: "Rank",
         includeZero: false,
         suffix: "",
